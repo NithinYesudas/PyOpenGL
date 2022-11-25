@@ -16,7 +16,7 @@ def plot_line():
     glFlush()
 glutInit()
 glutInitDisplayMode(GLUT_RGB)
-glutCreateWindow("Line")
+glutCreateWindow("Lines")
 glutInitWindowSize(500, 500)
 glutInitWindowPosition(50, 50)
 glutDisplayFunc(plot_line)
