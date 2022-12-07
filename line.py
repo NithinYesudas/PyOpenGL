@@ -11,6 +11,7 @@ def plot_line():
     glPointSize(5.0)
     glBegin(GL_LINES)
     glVertex2f(0.0, 0.0)
+    glVertex2f(0.0,-1.0)
     glVertex2f(1.0,0.0)
     glEnd()
     glFlush()
