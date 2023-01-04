@@ -11,6 +11,10 @@ def clearScreen():
 
 def triangle(x1, y1, x2, y2, x3, y3):
 
+<<<<<<< HEAD
+=======
+    # glClear(GL_COLOR_BUFFER_BIT)
+>>>>>>> fdc2323c53c2a214992a0504f152e878090ed9c7
     glBegin(GL_TRIANGLES)
     glVertex2f(x1, y1)
     glVertex2f(x2, y2)
@@ -33,7 +37,11 @@ def translation(x1, y1, x2, y2, x3, y3, tx, ty):
     y3 = y3+ty
     glColor3f(0, 1, 0)
     triangle(x1, y1, x2, y2, x3, y3)
+<<<<<<< HEAD
 def plotGraph():#to plot gridlines on the screen
+=======
+def plotGraph():
+>>>>>>> fdc2323c53c2a214992a0504f152e878090ed9c7
 
     
     for i in range(-10,10,2):
@@ -92,9 +100,15 @@ def shear(x1, y1, x2, y2, x3, y3, shearAxis, shearDistance):
     glColor3f(1, 0, 0)
     triangle(x1, y1, x2, y2, x3, y3)
     if (shearAxis == "x"):
+<<<<<<< HEAD
         x2 = x2+ y2* shearDistance
     else:
         y2 = y2+ shearDistance*x2
+=======
+        x2 += shearDistance
+    else:
+        y2 += shearDistance
+>>>>>>> fdc2323c53c2a214992a0504f152e878090ed9c7
     glColor3f(0, 1, 0)
     triangle(x1, y1, x2, y2, x3, y3)
 
