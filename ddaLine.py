@@ -12,15 +12,18 @@ def dda(x1,y1,x2,y2):
     dx =x2-x1
     glPointSize(10)
     steps = 0
-    for i in range((y2-y1)):
-        if(dx>dy):
-            x1 += 1
-            y1 += int(m)
-        else:
-            x1 += int(1/m)
-            y1 += 1 
+    
+    if(dx>dy):
+        steps = abs(dx)
+    else:
+        steps = dy
+    xinc = dx/steps
+    yinc = dy/steps
+    for i in range(dy):
+        x1 += xinc
+        y1+= yinc 
         glBegin(GL_POINTS)
-        glVertex2f(x1,y1)
+        glVertex2f(int(x1),int(y1))
         glEnd()
         glFlush()
            
