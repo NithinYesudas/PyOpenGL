@@ -5,6 +5,7 @@ import math
 import sys
 sys.setrecursionlimit(1000000)
 window_size = 500
+point_size = 8
 
 def rectangle(x1,y1,x2,y2,x3,y3,x4,y4):
     
@@ -30,7 +31,7 @@ def getPixel(x,y):
     return color[0][0]  
 def setPixel(x,y,color):
     glColor3f(*color) 
-    glPointSize(8)
+    glPointSize(point_size)
     glBegin(GL_POINTS)
     glVertex2f(x,y)
     glEnd()
@@ -39,10 +40,10 @@ def floodFill(x,y,oldColor,newColor):
     color = getPixel(x,y)
     if all(color == oldColor):
         setPixel(x,y,newColor)
-        floodFill(x+8,y,oldColor,newColor)
-        floodFill(x-8,y,oldColor,newColor)
-        floodFill(x,y+8,oldColor,newColor)
-        floodFill(x,y-8,oldColor,newColor)
+        floodFill(x+point_size,y,oldColor,newColor)
+        floodFill(x-point_size,y,oldColor,newColor)
+        floodFill(x,y+point_size,oldColor,newColor)
+        floodFill(x,y-point_size,oldColor,newColor)
         
 def mouseClick(state,button,x,y):
     if(button == GLUT_LEFT_BUTTON and state == GLUT_DOWN):
