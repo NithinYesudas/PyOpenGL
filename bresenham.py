@@ -56,7 +56,7 @@ def main():
     glutInitWindowSize(WINDOW_SIZE, WINDOW_SIZE)
     glutInitWindowPosition(50, 50)
     glutCreateWindow("Line")
-    glutDisplayFunc(lambda: bresenhamLine(0, 0, 75, 15))
+    glutDisplayFunc(lambda: bresenhamLine(0, 0, 75, 75))
     clearScreen()
     glutMainLoop()
 
