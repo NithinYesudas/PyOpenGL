@@ -34,7 +34,7 @@ def waterdrops(y):
     glEnd()
 def water():
     
-    for i in range(0,-80,-1):
+    for i in range(0,-15,-1):
         glClear(GL_COLOR_BUFFER_BIT)
         
         waterdrops(i + 40)
@@ -47,12 +47,16 @@ def water():
         waterdrops(i+12)
         waterdrops(i+8)
         waterdrops(i+4)
+        waterdrops(i)
+        waterdrops(i-4)
+        waterdrops(i-8)
         pipe()
         glFlush()
         time.sleep(.05)
 def animate():
     for i in range(0,5,1):
-        water()        
+        water()  
+            
 def main():
     global ref_x
     glutInit()

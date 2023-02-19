@@ -15,8 +15,8 @@ def planet(rx, ry):
     glBegin(GL_TRIANGLE_FAN)  # for sun
     for i in range(0, 360, 1):
         theta = math.pi * (i/180)
-        x = rx+10*math.cos(theta)
-        y = ry + 10*math.sin(theta)
+        x = rx+7*math.cos(theta)
+        y = ry + 7*math.sin(theta)
 
         glVertex2f(x, y)
     glEnd()
@@ -33,36 +33,37 @@ def sun():
         glVertex2f(x, y)
     glEnd()
 
-def path():
+def path(r):
         glColor3f(1,1,1)
         glBegin(GL_LINE_LOOP)
         for i in range(0,360,1):
             theta = math.pi*(i/180)
-            x = 30*math.cos(theta)
-            y = 30 * math.sin(theta)
+            x = 1.8*r*math.cos(theta)
+            y = r * math.sin(theta)
             glVertex2f(x,y)
         glEnd()
         
     
 def solar():
 
-    for i in range(0, 360, 1):
+    for i in range(0, 720, 1):
         glClear(GL_COLOR_BUFFER_BIT)
 
         sun()
-        path()
+        path(20)
        
             
         time.sleep(.05)
         glColor3f(0, 1, 0)
         theta = math.pi*(i/180)
-        x = 30*math.cos(theta)
-        y = 30 * math.sin(theta)
+        x = 36*math.cos(theta)
+        y = 20 * math.sin(theta)
 
         planet(x, y)
         glColor3f(0, 0, 1)
-        x = 60*math.cos(theta)
-        y = 60 * math.sin(theta)
+        path(40)
+        x = 72*math.cos(theta)
+        y = 40 * math.sin(theta)
         planet(x, y)
         glFlush()
 
