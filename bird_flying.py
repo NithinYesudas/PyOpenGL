@@ -13,7 +13,7 @@ def clearScreen():
 def bird():
     global ref_x,ref_y
     glClear(GL_COLOR_BUFFER_BIT)
-    glColor(0,1,0)
+    glColor(0,.8,.2)
     glBegin(GL_TRIANGLE_FAN)#body
     for i in range(0,360,1):
         theta = math.pi * (i/180)
@@ -28,6 +28,7 @@ def bird():
     glEnd()
     wings()#wings
     beak()#beak
+    tail()
     glFlush()
 def beak():
     global ref
@@ -36,7 +37,15 @@ def beak():
     glVertex2f(ref_x+19,ref_y+2)
     glVertex2f(ref_x+19,ref_y-2)
     glVertex2f(ref_x+23,ref_y)  
-    glEnd()  
+    glEnd() 
+def tail():
+    global ref_x,ref_y
+    glColor3f(0,.8,.2)
+    glBegin(GL_TRIANGLES)
+    glVertex2f(ref_x-25,ref_y+10)
+    glVertex2f(ref_x-25,ref_y-4)
+    glVertex2f(ref_x-16,ref_y)  
+    glEnd()     
 def wings():
     global ref_x,initPosition,ref_y
     glColor3f(0,0.5,1)
