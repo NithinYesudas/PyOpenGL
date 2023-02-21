@@ -12,7 +12,7 @@ def clearScreen():
     glClearColor(0.0, 0.0, 0.0, 1.0)
 
 
-def drawLine():
+def drawBoundaries():
     glColor(1, 0, 0)
     glPointSize(10)
     glBegin(GL_LINES)
@@ -47,7 +47,7 @@ def ball():
     global ref_x, ref_y
 
     glClear(GL_COLOR_BUFFER_BIT)
-    drawLine()
+    drawBoundaries()
     glColor(1, 0, 0)
     glBegin(GL_TRIANGLE_FAN)
     for i in range(0, 360, 1):
