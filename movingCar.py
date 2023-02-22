@@ -84,7 +84,7 @@ def drawWheels(x):
 
 
 def main():
-    global ref_x
+    
     glutInit()
     glutInitWindowSize(1000, 1000)
     glutCreateWindow("Car")

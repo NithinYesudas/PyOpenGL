@@ -25,7 +25,7 @@ def drawBoundaries():
     glEnd()
     glFlush()
 
-
+    
 def bounce():
     global ref_x, ref_y
     amp = 30
@@ -39,27 +39,33 @@ def bounce():
         if math.sin(theta) < 0:
             ref_y = 30*math.sin(theta)
         ref_x += .2
-        time.sleep(0.01)
-        ball()
+        time.sleep(0.008)
+        x =  7*math.cos(theta)
+        y = 7*math.sin(theta)
+        ball(x,y)
 
 
-def ball():
+def ball(x1,y1):
     global ref_x, ref_y
 
     glClear(GL_COLOR_BUFFER_BIT)
     drawBoundaries()
     glColor(1, 0, 0)
     glBegin(GL_TRIANGLE_FAN)
+   
     for i in range(0, 360, 1):
+         
         theta = math.pi * (i/180)
         x = ref_x + 10*math.cos(theta)
         y = ref_y + 10*math.sin(theta)
         glVertex2f(x, y)
     glEnd()
     glPointSize(4)
+    
     glColor(1, 1, 1)
     glBegin(GL_POINTS)
-    glVertex2f(ref_x-5, ref_y+5)
+    
+    glVertex2f(ref_x-x1, ref_y+y1)
     glEnd()
 
     glFlush()
@@ -72,7 +78,7 @@ def main():
     glutCreateWindow("ball bounce")
     glutInitWindowPosition(1000, 1000)
     glutDisplayFunc(bounce)
-
+    
     clearScreen()
     glutMainLoop()
 
