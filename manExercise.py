@@ -8,14 +8,7 @@ def clearScreen():
     glClearColor(0.0, 0.0, 0.0, 1.0)
     
 def manBody():
-    glColor(0,0.9,.2)
-    glBegin(GL_TRIANGLE_FAN)
-    for i in range(0,360,1):
-        theta = math.radians(i)
-        x =  6*math.cos(theta)
-        y = 10 + 6*math.sin(theta)
-        glVertex2f(x,y)   
-    glEnd()
+
     glColor3f(.9,.1,0)
     glBegin(GL_POLYGON)
     glVertex2f(-2,6)

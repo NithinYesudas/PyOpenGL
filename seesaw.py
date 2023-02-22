@@ -17,14 +17,13 @@ def bar(flag):
     
     for i in range(330,390,1):
         
-        if(flag): 
-            x1 = 40*math.cos(math.radians(i))
-            y1 = 40*math.sin(math.radians(i)) 
+         
+        x1 = 40*math.cos(math.radians(i))
+        y1 = 40*math.sin(math.radians(i)) 
             
         
-        else:
-            x1 = -40*math.cos(math.radians(i))
-            y1 = 40*math.sin(math.radians(i)) 
+        if(not flag):
+            y1=-y1 
                
         
         glLineWidth(6)
