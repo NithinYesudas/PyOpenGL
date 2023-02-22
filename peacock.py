@@ -56,7 +56,7 @@ def eyes(x1, radius):
 
 
 def subWing(x, y):
-    glColor3f(0, 1, 0)
+   
     glBegin(GL_LINES)
     glVertex2f(0, -13)
     glVertex2f(x, y)
@@ -69,6 +69,11 @@ def wings():
         theta = math.radians(i)
         x = 40*math.cos(theta)
         y = -15+40*math.sin(theta)
+        if(i%4 ==0):
+            glColor3f(0,.8,.2)
+        else:
+             glColor3f(0, 1, 0)
+                
         subWing(x, y)
         subWing(-x,y)
         peacockBody()
