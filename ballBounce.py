@@ -52,10 +52,10 @@ def ball(x1,y1):
     drawBoundaries()
     glColor(1, 0, 0)
     glBegin(GL_TRIANGLE_FAN)
-   
+    
     for i in range(0, 360, 1):
          
-        theta = math.pi * (i/180)
+        theta = math.radians(i)
         x = ref_x + 10*math.cos(theta)
         y = ref_y + 10*math.sin(theta)
         glVertex2f(x, y)

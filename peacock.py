@@ -56,26 +56,49 @@ def eyes(x1, radius):
 
 
 def subWing(x, y):
-   
+    
     glBegin(GL_LINES)
     glVertex2f(0, -13)
     glVertex2f(x, y)
     glEnd()
 
 
-def wings():
+def wingsGrow():
+
 
     for i in range(90, 180, 1):
         theta = math.radians(i)
         x = 40*math.cos(theta)
         y = -15+40*math.sin(theta)
-        if(i%4 ==0):
-            glColor3f(0,.8,.2)
+        if (i % 4 == 0):
+            glColor3f(0, .8, .2)
         else:
-             glColor3f(0, 1, 0)
-                
+            glColor3f(0, 1, 0)
+
         subWing(x, y)
-        subWing(-x,y)
+        subWing(-x, y)
+        peacockBody()
+        glFlush()
+        time.sleep(0.05)
+
+
+def animate():
+    for i in range(0, 3, 1):
+        wingsGrow()
+        time.sleep(1)
+        wingShrink()
+        time.sleep(1)
+
+
+def wingShrink():
+    for i in range(0, 90, 1):
+        theta = math.radians(i)
+        x = 40*math.cos(theta)
+        y = -15+40*math.sin(theta)
+
+        glColor3f(0, 0, 0)
+        subWing(x, y)
+        subWing(-x, y)
         peacockBody()
         glFlush()
         time.sleep(0.05)
@@ -91,7 +114,7 @@ def main():
     glutInitWindowSize(750, 750)
     glutCreateWindow("Peacock")
     glutInitWindowPosition(1000, 1000)
-    glutDisplayFunc(wings)
+    glutDisplayFunc(animate)
 
     clearScreen()
     glutMainLoop()
