@@ -46,7 +46,7 @@ def bird():
     beak()
     jar()
      
-def jar():
+def jar():#jar
     glColor3f(.8,.3,0)
     glBegin(GL_POLYGON)
     glVertex2f(10,-10)
